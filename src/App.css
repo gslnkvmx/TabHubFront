@@ -1,0 +1,14 @@
+.tabsContainer {
+  scrollbar-width: none;
+}
+
+.tabsContainer::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.tabsContainer {
+  transition-property: display opacity;
+  transition-duration: 1s;
+  transition-behavior: allow-discrete;
+}
