@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import TabItem from "./TabItem";
 import { Button, Dropdown, Carousel } from "antd";
+import AddTabModal from "./AddTabModal";
 
 function TabList({ title, description, tabs }) {
   const handleMenuClick = (e) => {
@@ -23,6 +24,11 @@ function TabList({ title, description, tabs }) {
   const menuProps = {
     items,
     onClick: handleMenuClick,
+  };
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const showModal = () => {
+    setIsModalOpen(true);
   };
 
   return (
@@ -103,9 +109,14 @@ function TabList({ title, description, tabs }) {
             );
           })}
 
-          <Button type="text size-14 rounded-full mr-10">
+          <Button type="text size-14 rounded-full mr-10" onClick={showModal}>
             <i className="fa-solid fa-plus text-lg"></i>
           </Button>
+
+          <AddTabModal
+            isModalOpen={isModalOpen}
+            setIsModalOpen={setIsModalOpen}
+          />
         </div>
       </div>
     </>

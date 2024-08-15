@@ -24,6 +24,9 @@ function App() {
         token: {
           // Seed Token
           colorPrimary: "#722ed1",
+          fontFamily:
+            "	'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace",
+          fontSize: 16,
         },
       }}
     >
