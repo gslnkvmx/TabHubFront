@@ -43,12 +43,12 @@ function App() {
           colorPrimary: "#722ed1",
           fontFamily:
             "	'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace",
-          fontSize: 16,
+          fontSize: 18,
         },
       }}
     >
       <div className="flex flex-col items-center mx-32">
-        <div className="h-16"></div>
+        <div className="h-16">heading</div>
         {tabCollections.map((tl) => {
           return (
             <TabList
@@ -68,7 +68,7 @@ function App() {
         <AddTabCollectionModal
           isModalOpen={isModalOpen}
           setIsModalOpen={setIsModalOpen}
-          onCreateTabCol={onCreateTabCol}
+          onCreateTab={onCreateTabCol}
         />
       </div>
     </ConfigProvider>

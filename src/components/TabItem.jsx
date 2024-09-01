@@ -47,7 +47,7 @@ function TabItem({ url, description, createdAt }) {
       <div className="flex flex-row justify-between">
         <div className="p-2 lg:w-64 w-32">
           <a href={url}>
-            <p className="text-lg font-bold truncate text-gray-800">{url}</p>
+            <p className="text-xl font-bold truncate text-gray-800">{url}</p>
           </a>
           <p className="text-lg truncate text-gray-400">{description}</p>
         </div>
