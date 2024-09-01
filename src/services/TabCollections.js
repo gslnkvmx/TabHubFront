@@ -23,3 +23,16 @@ export const fetchTabCollectionById = async (collectionId) => {
     console.error(e);
   }
 };
+
+export const createTabCollection = async (tabCol) => {
+  try {
+    var response = await axios.post(
+      "http://localhost:5031/api/TabCollections",
+      tabCol
+    );
+    console.log(response);
+    return response.status;
+  } catch (e) {
+    console.error(e);
+  }
+};

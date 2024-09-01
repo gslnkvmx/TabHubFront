@@ -47,7 +47,7 @@ function TabList({ id, title, description, tabs }) {
   return (
     <>
       <div
-        className="flex flex-auto flex-col p-6 mx-32 my-8 bg-gray-100 rounded-xl"
+        className="flex flex-auto flex-col p-6 my-4 bg-gray-100 rounded-xl w-full"
         style={{
           height: isOpen ? "286px" : "84px",
           transition: "0.3s ease-out",

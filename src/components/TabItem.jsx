@@ -43,7 +43,7 @@ function TabItem({ url, description, createdAt }) {
   };
 
   return (
-    <div className="p-3 mr-7 border border-gray-300 bg-white/75 rounded-lg flex flex-col w-128 md:w-96 flex-none">
+    <div className="p-3 mr-7 border border-gray-300 bg-white/75 rounded-lg flex flex-col w-128 md:w-96 h-40 flex-none">
       <div className="flex flex-row justify-between">
         <div className="p-2 lg:w-64 w-32">
           <a href={url}>
