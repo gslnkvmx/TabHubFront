@@ -1,12 +1,28 @@
 import React, { useState } from "react";
 import { Button, Form, Input, Modal } from "antd";
 
-function AddTabModal({ isModalOpen, setIsModalOpen }) {
+function AddTabModal({
+  isModalOpen,
+  setIsModalOpen,
+  onCreateTab,
+  collectionId,
+}) {
   const [form] = Form.useForm();
-  const [formValues, setFormValues] = useState();
-  const onCreate = (values) => {
+
+  const [tabValues, setTabValues] = useState();
+  const onCreate = async (values) => {
     console.log("Received values of form: ", values);
-    setFormValues(values);
+    setTabValues({
+      ...tabValues,
+      url: values.url,
+      collection: collectionId,
+      description: values.description,
+    });
+    onCreateTab({
+      url: values.url,
+      collection: collectionId,
+      description: values.description,
+    });
     setIsModalOpen(false);
   };
 
@@ -14,7 +30,7 @@ function AddTabModal({ isModalOpen, setIsModalOpen }) {
     <>
       <Modal
         open={isModalOpen}
-        title="Create a new collection"
+        title="Add a new tab"
         okText="Create"
         cancelText="Cancel"
         okButtonProps={{

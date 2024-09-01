@@ -2,13 +2,19 @@ import React, { useState } from "react";
 import TabItem from "./TabItem";
 import { Button, Dropdown, Carousel } from "antd";
 import AddTabModal from "./AddTabModal";
+import { createTab, fetchTabs } from "../services/Tabs";
+import {
+  fetchTabCollectionById,
+  fetchTabCollections,
+} from "../services/TabCollections";
 
-function TabList({ title, description, tabs }) {
+function TabList({ id, title, description, tabs }) {
   const handleMenuClick = (e) => {
     message.info("Click on menu item.");
     console.log("click", e);
   };
   const [isOpen, setIsOpen] = useState(true);
+  const [tabsList, setTabsList] = useState(tabs);
 
   const items = [
     {
@@ -29,6 +35,13 @@ function TabList({ title, description, tabs }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {
     setIsModalOpen(true);
+  };
+
+  const onCreateTab = async (tab) => {
+    await createTab(tab);
+    let collection = await fetchTabCollectionById(id);
+
+    setTabsList(collection.tabs);
   };
 
   return (
@@ -98,7 +111,7 @@ function TabList({ title, description, tabs }) {
             display: isOpen ? "flex" : "none",
           }}
         >
-          {tabs.map((t) => {
+          {tabsList.map((t) => {
             return (
               <TabItem
                 key={t.id}
@@ -116,6 +129,8 @@ function TabList({ title, description, tabs }) {
           <AddTabModal
             isModalOpen={isModalOpen}
             setIsModalOpen={setIsModalOpen}
+            onCreateTab={onCreateTab}
+            collectionId={id}
           />
         </div>
       </div>

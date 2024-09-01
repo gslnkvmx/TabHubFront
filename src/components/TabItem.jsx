@@ -24,7 +24,12 @@ function TabItem({ url, description, createdAt }) {
   };
 
   const getDomain = (url) => {
-    let domain = new URL(url);
+    let domain = "";
+    try {
+      domain = new URL(url);
+    } catch {
+      return url;
+    }
     domain = domain.hostname.replace("www.", "");
 
     return domain;
